@@ -1,0 +1,57 @@
+# Codsoft-Task-5
+import random
+
+print("Hi! I'm Tapasya, and this is my rock, paper, scissors game!")
+print("Let's play!")
+
+user_score = 0
+computer_score = 0
+round_number = 1
+
+while True:
+    print("\n--- Round", round_number, "---")
+    print("Choices: rock, paper, scissors")
+    user_choice = input("Enter your choice: ").lower()
+
+    if user_choice != "rock" and user_choice != "paper" and user_choice != "scissors":
+        print("Invalid choice. Try again.")
+        continue
+
+    computer_choice = random.choice(["rock", "paper", "scissors"])
+
+    print("You chose:", user_choice)
+    print("Computer chose:", computer_choice)
+
+    if user_choice == computer_choice:
+        print("It's a tie!")
+    elif user_choice == "rock":
+        if computer_choice == "scissors":
+            print("You win! Rock beats scissors.")
+            user_score += 1
+        else:
+            print("Computer wins! Paper beats rock.")
+            computer_score += 1
+    elif user_choice == "paper":
+        if computer_choice == "rock":
+            print("You win! Paper beats rock.")
+            user_score += 1
+        else:
+            print("Computer wins! Scissors beats paper.")
+            computer_score += 1
+    elif user_choice == "scissors":
+        if computer_choice == "paper":
+            print("You win! Scissors beats paper.")
+            user_score += 1
+        else:
+            print("Computer wins! Rock beats scissors.")
+            computer_score += 1
+
+    print("Score -> You:", user_score, "| Computer:", computer_score)
+
+    play_again = input("Do you want to play again? (yes/no): ").lower()
+    if play_again != "yes":
+        print("\nThanks for playing!")
+        print("Final Score -> You:", user_score, "| Computer:", computer_score)
+        break
+
+    round_number += 1
